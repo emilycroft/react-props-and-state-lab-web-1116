@@ -65,6 +65,8 @@ describe('<Pet />', function () {
         expect(wrapper.find('button.ui.primary.button').length === 1 && wrapper.find('button.ui.disabled.button').length === 0).toBeTruthy();
       });
 
+      
+
       it('should call the `onAdoptPet` callback prop when the adopt button is clicked', function () {
         const spy = sinon.spy();
         const wrapper = shallow(<Pet pet={FEMALE_CAT} isAdopted={false} onAdoptPet={spy} />);

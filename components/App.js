@@ -13,7 +13,17 @@ class App extends React.Component {
       filters: {
         type: 'all',
       }
-    };
+    }
+
+    this.onChangeType = this.onChangeType.bind(this)
+  }
+
+  onChangeType(query) {
+    this.setState({
+      filters: Object.assign({}, this.state.filters, {
+        type: query
+      })
+    })
   }
 
   render() {
@@ -25,7 +35,7 @@ class App extends React.Component {
         <div className="ui container">
           <div className="ui grid">
             <div className="four wide column">
-              <Filters />
+              <Filters filters={this.state.filters} onChangeType={this.onChangeType}/>
             </div>
             <div className="twelve wide column">
               <PetBrowser />
